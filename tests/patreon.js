@@ -6,7 +6,7 @@ test('patreon', (assert) => {
     assert.plan(8)
 
     nock('https://www.patreon.com/api')
-        .get('/oauth2/api/current_user')
+        .get('/oauth2/v2/identity')
         .reply(200, function (uri, body) {
             assert.ok(
                 this.req.headers.authorization.indexOf('Bearer token') > -1,
@@ -41,7 +41,7 @@ test('patreon', (assert) => {
 
     const client = patreon('token')
 
-    client('/current_user')
+    client('/identity')
         .then(({ store, rawJson }) => {
             assert.equal(store.find('user', '123').full_name, 'Test User', 'store should be a JSON:API data store')
             assert.equal(store.find('user', '123').campaign.pledge_sum, 123456, 'store should be a JSON:API data store')
@@ -59,10 +59,10 @@ test('patreon', (assert) => {
         })
 
     nock('https://www.patreon.com/api')
-        .get('/oauth2/api/current_user')
+        .get('/oauth2/v2/identity')
         .replyWithError('Oh geeze')
 
-    client('/current_user')
+    client('/identity')
         .then((result) => {
             assert.fail('promise passed unexpectedly!')
         })

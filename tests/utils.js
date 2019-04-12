@@ -13,7 +13,7 @@ test('normalizeRequest', (assert) => {
 
     const requestString = '/nested/request/query'
     assert.deepEqual(normalizeRequest(requestString), {
-        url: 'https://www.patreon.com/api/oauth2/api/nested/request/query',
+        url: 'https://www.patreon.com/api/oauth2/v2/nested/request/query',
         method: 'GET'
     }, 'correctly parses nested request string')
 
@@ -22,7 +22,7 @@ test('normalizeRequest', (assert) => {
         query: 'query'
     }
     assert.deepEqual(normalizeRequest(requestObject), {
-        url: 'https://www.patreon.com/api/oauth2/api/url',
+        url: 'https://www.patreon.com/api/oauth2/v2/url',
         query: 'query'
     }, 'correctly parses request object with url')
 
@@ -31,7 +31,7 @@ test('normalizeRequest', (assert) => {
         query: 'query'
     }
     assert.deepEqual(normalizeRequest(requestObjectWithoutUri), {
-        url: 'https://www.patreon.com/api/oauth2/api/',
+        url: 'https://www.patreon.com/api/oauth2/v2/',
         key: 'value',
         query: 'query'
     }, 'correctly parses request object without url')

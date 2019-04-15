@@ -1,3 +1,16 @@
+# 0.5.1
+
+## Fixed
+
+* Updated package information
+* Fixed encoding of square brackets
+
+# 0.5.0
+
+## Updated
+
+* Changed the API endpoint to use version 2 of the API
+
 # 0.4.1
 
 ## Added

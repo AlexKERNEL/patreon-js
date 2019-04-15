@@ -1,6 +1,6 @@
 {
-  "name": "patreon",
-  "version": "0.4.1",
+  "name": "@nathanhigh/patreon",
+  "version": "0.5.1",
   "description": "Use the Patreon API via OAuth.",
   "main": "dist/index.js",
   "scripts": {

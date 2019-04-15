@@ -2,8 +2,9 @@
 
 [![Build State](https://img.shields.io/circleci/project/Patreon/patreon-js.svg?style=flat)](https://circleci.com/gh/Patreon/patreon-js)
 
-Use the Patreon API via OAuth.
+Use the Patreon APIv2 via OAuth.
 
+This fork of the Patreon API has been updated to use version 2 of the API and fix some bugs in the original package. The schemas probably still need to be updated, however.
 
 ## Setup
 
@@ -47,7 +48,7 @@ function handleOAuthRedirectRequest(request, response) {
         .getTokens(oauthGrantCode, redirectURL)
         .then(function(tokensResponse) {
             var patreonAPIClient = patreonAPI(tokensResponse.access_token)
-            return patreonAPIClient('/current_user')
+            return patreonAPIClient('/identity')
         })
         .then(function(result) {
             var store = result.store
@@ -82,7 +83,7 @@ function handleOAuthRedirectRequest(request, response) {
         .getTokens(oauthGrantCode, redirectURL)
         .then(tokensResponse => {
             const patreonAPIClient = patreonAPI(tokensResponse.access_token)
-            return patreonAPIClient('/current_user')
+            return patreonAPIClient('/identity')
         })
         .then(({ store }) => {
             // store is a [JsonApiDataStore](https://github.com/beauby/jsonapi-datastore)
@@ -173,7 +174,7 @@ const { patreon, jsonApiURL } = require('patreon')
 const pledge_schema = require('patreon/schemas/pledge')
 
 const patreonAPIClient = patreon(access_token)
-const url = jsonApiURL(`/current_user`, {
+const url = jsonApiURL(`/identity`, {
   fields: {
     pledge: [...pledge_schema.default_attributes, pledge_schema.attributes.total_historical_amount_cents]
   }

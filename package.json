@@ -12,20 +12,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/patreon/patreon-js.git"
+    "url": "git+https://github.com/Wizzeh/patreon-js.git"
   },
   "keywords": [
     "patreon"
   ],
   "author": "Patreon <platform-team@patreon.com>",
+  "contributors": [
+    "Nathan High <contact@nathanhigh.com>"
+  ],
   "license": "MIT",
   "engines": {
     "node": ">6.2.1"
   },
   "bugs": {
-    "url": "https://github.com/patreon/patreon-js/issues"
+    "url": "https://github.com/Wizzeh/patreon-js/issues"
   },
-  "homepage": "https://github.com/patreon/patreon-js#readme",
+  "homepage": "https://github.com/Wizzeh/patreon-js#readme",
   "dependencies": {
     "form-urlencoded": "^2.0.4",
     "is-plain-object": "^2.0.4",

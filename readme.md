@@ -18,7 +18,7 @@ Visit the [OAuth Documentation Page](https://www.patreon.com/oauth2/documentatio
 Install with [npm](https://www.npmjs.com). You'll need to have [Node.js](https://nodejs.org) installed.
 
 ```
-npm install --save patreon
+npm install --save @nathanhigh/patreon
 ```
 
 
